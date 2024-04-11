@@ -18,17 +18,17 @@ I am writing this article since I found most articles on the Internet don't expl
 
 You need to understand basic abstract algebra and how elliptic curve works, but shallow understanding is enough. I recommend the following articles:
 
-- https://www.rareskills.io/post/set-theory
-- https://www.rareskills.io/post/group-theory-and-coding
-- https://www.rareskills.io/post/rings-and-fields
-- https://www.rareskills.io/post/elliptic-curve-addition
-- https://www.rareskills.io/post/elliptic-curves-finite-fields
-- https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/
-- https://andrea.corbellini.name/2015/05/23/elliptic-curve-cryptography-finite-fields-and-discrete-logarithms/
+- [https://www.rareskills.io/post/set-theory](https://www.rareskills.io/post/set-theory)
+- [https://www.rareskills.io/post/group-theory-and-coding](https://www.rareskills.io/post/group-theory-and-coding)
+- [https://www.rareskills.io/post/rings-and-fields](https://www.rareskills.io/post/rings-and-fields)
+- [https://www.rareskills.io/post/elliptic-curve-addition](https://www.rareskills.io/post/elliptic-curve-addition)
+- [https://www.rareskills.io/post/elliptic-curves-finite-fields](https://www.rareskills.io/post/elliptic-curves-finite-fields)
+- [https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/](https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/)
+- [https://andrea.corbellini.name/2015/05/23/elliptic-curve-cryptography-finite-fields-and-discrete-logarithms/](https://andrea.corbellini.name/2015/05/23/elliptic-curve-cryptography-finite-fields-and-discrete-logarithms/)
 
 # Understanding Elliptic Curve Diffie-Hellman (ECDH)
 
-ECDH is like traditional Diffie-Hellman (DH), but replaces the original discrete log problem (DLP) with elliptic curve discrete log problem (ECDLP). In short, DLP means given $$y = g^x \mod p$$, it is hard (hard means nearly impossible) to recover $$x$$. In comparison, ECDLP means given $$Q = nP$$ where $$P$$ is some point on an elliptic curve over a finite field, it is hard to recover $$n$$.
+ECDH is like traditional Diffie-Hellman (DH), but replaces the original discrete log problem (DLP) with elliptic curve discrete log problem (ECDLP). In short, DLP means given $$ y = g^x \mod p $$, it is hard (hard means nearly impossible) to recover $$ x $$. In comparison, ECDLP means given $$ Q = nP $$ where $$P$$ is some point on an elliptic curve over a finite field, it is hard to recover $$ n $$.
 
 In general it is recommended to use ECDH over DH since it has shorter key, up-to-date standard and less attack vectors. However, if you don't implement ECDH correctly, it is still vulnerable to attacks such as small group attack and invalid curve attack.
 
