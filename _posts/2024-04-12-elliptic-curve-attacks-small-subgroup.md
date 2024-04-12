@@ -10,7 +10,13 @@ title: Elliptic curve attacks - from small subgroup attack to invalid curve atta
 
 # TL;DR
 
-when auditing elliptic curve libs, especially ECDH related code, double check if the code actually verified that the point sent by user is actually on the curve. If not, attacker can send bogus points to trick the backend server, learning the shared key or recovering server's private key in the worst case.
+When auditing elliptic curve libs, especially **ECDH** related code, double check if the code has sufficient validation on the points sent by the users. If not, attacker can send bogus points to trick the backend server, learning the shared key or recovering server's private key in the worst case. 
+
+There is a well-known attack called **"small subgroup attack"**, where the attacker can pick point from a subgroup with small order and send to the server. Since order is small, it is easy to bruteforce the shared secret and thus decrypt any encryption in the communication. To prevent this attack, the server should verify if the point is chosen from a known subgroup, or simply pick a curve with prime order (so that there is no nontrivial subgroup).
+
+Another attack is called **"invalid curve attack"**, it is built on top of small subgroup attack. In this attack, attacker picks points from many "similar" curves (differs only in constant term) and sends them to the server. For each such point, attacker learns a congruence regarding server's private key. In the end, attacker collects a system of congruences and solve the private key using Chinese Remainder Theorem. To prevent such attack, the code should verify that the incoming point satisfies curve equation.
+
+---
 
 I am writing this article since I found most articles on the Internet don't explain the details of small subgroup attack and invalid curve attack very well. When reading those resources, I had been confused multiple times due to lack of detail. Therefore I will try my best to make sense all the steps in these two related attacks.
 
@@ -101,13 +107,18 @@ When Alice conducts small subgroup attack, she can pick a point $$Q$$ with order
 
 Without getting stuck into details, let's say Alice can find a point $$Q$$ with order $$h$$. She sends $$Q$$ to Bob, Bob computes $$d_B * Q$$ and use that as shared key to encrypt further communication. Since $$Q$$ has small order $$h$$, there are only $$h$$ possibilities for $$d_B * Q$$. Alice can bruteforce all possibilities and see which candidate is able to correctly decrypt the encrypted message. This will take 4 or 8 tries depending on the value of $$h$$.
 
+(**TODO:** I don't know how to prove a point with a certain order actually exist on a curve and I don't have an algorithm for finding it. Will come back later if I figure out).
+
 ---
 
 To prevent small subgroup attack, your code should reject any incoming point $$Q$$ s.t. $$hQ = O$$ from Alice. Another way to prevent this attack is to set $$h = 1$$, so that the order of curve will be a large prime.
 
 # Invalid curve attack
 
-If Bob does not verify if Q_A is actually on the elliptic curve, Alice can come up with some fake point which lies on some other elliptic curve. For example, if the valid curve is BN254 -> $$y^2 = x^3 + 3$$, then Alice can choose invalid curves $$y^2 = x^3 + c$$, where $$c$$ is a constant.
+If Bob does not verify if Q_A is actually on the elliptic curve (call it **valid curve**), Alice can come up with some fake point which lies on some other elliptic curve (call it **invalid curve**). For example, if the valid curve is BN254 -> $$y^2 = x^3 + 3$$, then Alice can choose invalid curves $$y^2 = x^3 + c$$, where $$c$$ is a constant.
+
+**Q:** Why keep $$x^3$$ fixed and only change the constant term?
+**A:** 
 
 Alice then chooses a point Q_1 on the invalid curve with small prime order $$p_1$$. Alice sends $$Q_1$$ to Bob in the exchange phase. Bob would compute key = $$d * Q_1$$, where d is Bob's private key. In the end Bob will encrypt message using this computed key and send ciphertext to Alice.
 
@@ -120,4 +131,3 @@ It is easy to since Alice can bruteforce all numbers between 0 and $$p_1$$ and c
 - [https://safecurves.cr.yp.to/twist.html](https://safecurves.cr.yp.to/twist.html)
 - [https://crypto.stackexchange.com/questions/18222/difference-between-ecdh-with-cofactor-key-and-ecdh-without-cofactor-key/26844#26844](https://crypto.stackexchange.com/questions/18222/difference-between-ecdh-with-cofactor-key-and-ecdh-without-cofactor-key/26844#26844)
 - [https://www.hackthebox.com/blog/business-ctf-2022-400-curves-write-up](https://www.hackthebox.com/blog/business-ctf-2022-400-curves-write-up)
-- 
