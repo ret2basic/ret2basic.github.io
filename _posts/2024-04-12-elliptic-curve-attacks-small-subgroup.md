@@ -66,7 +66,7 @@ For example, say group $$G$$ has order 6. We can factor 6 into prime decompositi
 
 Recall the second corollary of Lagrange's theorem says any group of prime order is cyclic, and any element other than identity is a generator. Combining it with Cauchy's theorem, the prime order subgroups we get are all cyclic, and any (non-trivial) element in the subgroup is a generator. Recall that first corollary of Lagrange's theorem says the order of an element in a group divides the order of the group. Since we are working with prime order subgroups, it is easy to see that the order of element is either 1 or $$p$$, where $$p$$ is the order of the prime order subgroup. The order 1 case corresponds to the identity element, so we can conclude that if prime order subgroup has order $$p$$, then any non-trivial element in it has order $$p$$ as well.
 
-You might ask, why bother studying subgroups though? Abstractly, think of taking subgroup as conducting divide-and-conquer algorithm. In the two attacks we are going to talk about next, you will see how taking subgroups converts a hard problem into easy problem (computationally).
+You might ask, why bother studying subgroups though? Abstractly, think of taking subgroup as reducing a big problem to a small one. In the two attacks we are going to talk about next, you will see how taking subgroups converts a hard problem into easy problem (computationally).
 
 # Understanding Elliptic Curve Diffie-Hellman (ECDH)
 
