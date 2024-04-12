@@ -52,7 +52,9 @@ Lagrange's theorem has two important corollaries:
 
 **Reference:** [http://abstract.ups.edu/aata/cosets-section-lagranges-theorem.html](http://abstract.ups.edu/aata/cosets-section-lagranges-theorem.html)
 
-The first corollary is very easy to understand. The second corollary is saying "any group with prime order $$p$$ is a cyclic group and any element other than identity is a generator". These two corollaries are important results, keep that in mind, we will use it soon.
+The first corollary is very easy to understand. The second corollary is saying "any group with prime order $$p$$ is a cyclic group and any element other than identity is a generator". Recall that elliptic curve over finite field is a group, therefore these two corollaries apply to it. In elliptic curves, the first corollary says the order of a point on elliptic curve always divides the order of the curve. The second corollary says for any curve with prime order, the curve is cyclic and all points besides point at infinity are generators.
+
+**These two corollaries are important results, keep that in mind, we will use them a lot when studying elliptic curves.**
 
 And ATTENTION, you should know that Lagrange's theorem is an **if-then theorem**: if $$H$$ is a subgroup of $$G$$, then the order of $$H$$ divides the order of $$G$$. It does not guarantee the existence of a subgroup of a certain order. Equivalently, this reasoning is saying "the reverse of Lagrange's theorem is false": if the order of $$H$$ divides the order of $$G$$, $$H$$ might not be a subgroup of $$G$$. Fortunately, the reverse of Lagrange's theorem is sometimes true, when $$H$$ has prime order.
 
@@ -120,3 +122,4 @@ To prevent this attack, Bob should verify all points sent by Alice satisfy the W
 - [https://safecurves.cr.yp.to/twist.html](https://safecurves.cr.yp.to/twist.html)
 - [https://crypto.stackexchange.com/questions/18222/difference-between-ecdh-with-cofactor-key-and-ecdh-without-cofactor-key/26844#26844](https://crypto.stackexchange.com/questions/18222/difference-between-ecdh-with-cofactor-key-and-ecdh-without-cofactor-key/26844#26844)
 - [https://www.hackthebox.com/blog/business-ctf-2022-400-curves-write-up](https://www.hackthebox.com/blog/business-ctf-2022-400-curves-write-up)
+- [https://crypto.stackexchange.com/questions/43614/how-to-find-the-generator-of-an-elliptic-curve](https://crypto.stackexchange.com/questions/43614/how-to-find-the-generator-of-an-elliptic-curve)
