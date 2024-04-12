@@ -14,11 +14,11 @@ When auditing elliptic curve libs, especially **ECDH** related code, double chec
 
 There is a well-known attack called **"small subgroup attack"**, where the attacker can pick point from a subgroup with small order and send to the server. Since order is small, it is easy to bruteforce the shared secret and thus decrypt any encryption in the communication. To prevent this attack, the server should verify if the point is chosen from a known subgroup, or simply pick a curve with prime order (so that there is no nontrivial subgroup).
 
-Another attack is called **"invalid curve attack"**, it is built on top of small subgroup attack. In this attack, attacker picks points from many "similar" curves (differs only in constant term) and sends them to the server. For each such point, attacker learns a congruence regarding server's private key. In the end, attacker collects a system of congruences and solve the private key using Chinese Remainder Theorem. To prevent such attack, the code should verify that the incoming point satisfies curve equation.
+Another lesser-known attack is called **"invalid curve attack"**, it is built on top of small subgroup attack. In this attack, attacker picks points from many "similar" curves (differs only in constant term) and sends them to the server. For each such point, attacker learns a congruence regarding server's private key. In the end, attacker collects a system of congruences and solve the private key using Chinese Remainder Theorem. To prevent such attack, the code should verify that the incoming point satisfies curve equation.
 
 ---
 
-I am writing this article since I found most articles on the Internet don't explain the details of small subgroup attack and invalid curve attack very well. When reading those resources, I had been confused multiple times due to lack of detail. Therefore I will try my best to make sense all the steps in these two related attacks.
+I am writing this article since I found most existing articles don't explain the details (especially math details) very well. When reading those resources, I had been confused multiple times due to lack of explanation. Therefore I will try my best to make sense all the steps in these two related attacks.
 
 Feel free to DM me on [Twitter](https://twitter.com/ret2basic) if you find mistakes in this article.
 
@@ -115,18 +115,22 @@ To prevent small subgroup attack, your code should reject any incoming point $$Q
 
 # Invalid curve attack
 
-If Bob does not verify if Q_A is actually on the elliptic curve (call it **valid curve**), Alice can come up with some fake point which lies on some other elliptic curve (call it **invalid curve**). For example, if the valid curve is BN254 -> $$y^2 = x^3 + 3$$, then Alice can choose invalid curves $$y^2 = x^3 + c$$, where $$c$$ is a constant.
+If Bob does not verify if $$Q_A$$ is actually on the elliptic curve (call it **valid curve**), Alice can come up with some fake point which lies on some other elliptic curve (call it **invalid curve**). For example, if the valid curve is BN254 -> $$y^2 = x^3 + 3$$, then Alice can choose invalid curves $$y^2 = x^3 + c$$, where $$c$$ is a constant.
 
-**Q:** Why keep $$x^3$$ fixed and only change the constant term?
-**A:** 
+**Q:** Why keep $$x^3$$ fixed and only change the constant term?\
+**A:** Because elliptic curve addition law does not involve the constant term, so that Bob can compute without panic even though the point sent by Alice is on a different curve. This fact can be verified with simple algebra. Check this [answer](https://crypto.stackexchange.com/a/88637/44397) for full derivation.
 
-Alice then chooses a point Q_1 on the invalid curve with small prime order $$p_1$$. Alice sends $$Q_1$$ to Bob in the exchange phase. Bob would compute key = $$d * Q_1$$, where d is Bob's private key. In the end Bob will encrypt message using this computed key and send ciphertext to Alice.
+Invalid curve attack is superior compared with small subgroup attack since we have more degrees of freedom. We can pick a point with order $$p_1$$ from a curve, pick point with order $$p_2$$ from another curve, then point with order $$p_3$$ from another curve, and continue. Recall that in small subgroup attack we could just pick point from a subgroup of the same curve, so choices were a lot more limited.
 
-For simplicity, let's assume Alice knows what the messsage is. Her goal is to compute the discrete logarithm $$a_1 = d mod p_1$$. This is easy to do since $$p_1$$ was chosen to be a small prime, so we are computing discrete log within a small subgroup, which is easy to do. It is easy to since Alice can bruteforce all numbers between 0 and $$p_1$$ and check Enc(message) == ciphertext. If it returns true, discrete log is found.
+Back to the actual attack. Alice then chooses a point $$Q_1$$ on the invalid curve with small prime order $$p_1$$. Alice sends $$Q_1$$ to Bob in the key exchange phase. Bob would compute key = $$d_B * Q_1$$, where $$d_B$$ is Bob's private key. In the end Bob will encrypt message using this computed key and send ciphertext to Alice.
 
-It is easy to since Alice can bruteforce all numbers between 0 and $$p_1$$ and check Enc(message) == ciphertext. If it returns true, discrete log is found. For example say $$p_1 = 11$$, then there are only 11 points on the invalid curve, so we can find discrete log at most 11 tries.
+Once Alice receives ciphertext, she can bruteforce the shared key. Since $$p_1$$ is fairly small, the shared key $$d_B * Q_1$$ only has $$p$$ possible values. Alice can traverse all possible points on the invalid curve and see which point decrypts the encrypted message correctly (for example it should return some meaningful string). In this round, Alice learns a congruence relation $$d_B \mod p_1$$. It is not possible to learn $$d_B$$ in only one round since we are working with elliptic curve on finite field, so anything we compute is in mod $$p$$.
 
-# Reference
+To recover $$d_B$$, Alice chooses point $$Q_2$$ with order $$p_2$$, point $$Q_3$$ with order $$p_3$$, and so on, and repeat the above process. In the end, Alice gets a system of congruences. Since all modulus $$p_i$$ are prime, they are coprime to each other. This satisfy the criterion of [Chinese Remainder Theorem (CRT)](https://crypto.stanford.edu/pbc/notes/numbertheory/crt.html), so Alice can solve for $$d_B \mod p_1*p_2*...*p_n$$. If Alice gets enough congruences so that the modulus $$p_1*p_2*...*p_n$$ is large enough, $$d_B$$ will be in the simplest form so no need to worry about modulus. In other words, Alice is able to recover Bob's private key at this stage.
+
+To prevent this attack, Bob should verify all points sent by Alice satisfy the Weierstrass equation of the valid curve.
+
+# Other references not mentioned in article
 
 - [https://safecurves.cr.yp.to/twist.html](https://safecurves.cr.yp.to/twist.html)
 - [https://crypto.stackexchange.com/questions/18222/difference-between-ecdh-with-cofactor-key-and-ecdh-without-cofactor-key/26844#26844](https://crypto.stackexchange.com/questions/18222/difference-between-ecdh-with-cofactor-key-and-ecdh-without-cofactor-key/26844#26844)
