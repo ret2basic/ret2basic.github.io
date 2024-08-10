@@ -6,7 +6,7 @@ title: gnark for Circom coders
 {{ page.title }}
 ================
 
-<p class="meta">August 12, 2024</p>
+<p class="meta">August 10, 2024</p>
 
 # Why writing this blogpost
 
@@ -181,27 +181,11 @@ The [LambdaClass article](https://blog.lambdaclass.com/how-to-use-the-consenyss-
 
 
 
-# Official gnark code examples
-
-## Example 1: MiMC
+# Writing gnark unit tests
 
 
 
 
+# Conclusion
 
-
-
-
-
-## Example 2: Plonk
-
-
-
-
-
-## Example 3: Rollup
-
-
-
-
-
+We covered basic usage of snark here. In future blogposts, I will dig deeper into [official gnark code examples](https://github.com/Consensys/gnark/tree/master/examples). Hope you enjoyed the article!
