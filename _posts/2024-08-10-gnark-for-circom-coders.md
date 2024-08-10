@@ -179,7 +179,7 @@ Besides high-level API, gnark also provides low-level API. The [LambdaClass arti
 
 "Hint" is a novel terminology that does not appear in Circom, but similar pattern exists in Circom.
 
-What is a hint? Take an example from [SoK: What Don’t We Know? Understanding Security Vulnerabilities in SNARKs](https://arxiv.org/pdf/2402.15293) page 3 on the right, suppose we want to write a circuit that verifies $$X \neq 0$$. One way to do it is to use Fermat's little theorem and test if $$X ^ {p-1} = 1 \mod p$$, but that computation is expensive. Another way is let prover provide a hint $$H = X^{-1}$$ and test $$X * H \eq 1$$, and this works because non-zero elements over a field (which includes finite fields) always have multiplicative inverse by definition.
+What is a hint? Take an example from [SoK: What Don’t We Know? Understanding Security Vulnerabilities in SNARKs](https://arxiv.org/pdf/2402.15293) page 3 on the right, suppose we want to write a circuit that verifies $$X \neq 0$$. One way to do it is to use Fermat's little theorem and test if $$X ^ {p-1} = 1 \mod p$$, but that computation is expensive. Another way is let prover provide a hint $$H = X^{-1}$$ and test $$X * H = 1$$, and this works because non-zero elements over a field (which includes finite fields) always have multiplicative inverse by definition.
 
 **In other words, "hint" means I can't compute the thing / I don't want to compute the thing since it is expensive, so I let you provide a "helper" to help me do the computation.**
 
