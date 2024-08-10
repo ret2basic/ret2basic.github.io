@@ -126,12 +126,6 @@ func (circuit *Circuit) Define(api frontend.API) error {
 	api.AssertIsEqual(circuit.Y, res)
 	return nil
 }
--- witness.json --
-{
-    "x": 3,
-    "Y": 35
-}
-
 ```
 
 Similar to Circom, if a variable is not declared public, then it is private by default, such as `X`. The `gnark:"x"` and `gnark:",public"` part is called a **"tag"**, it adds metadata to fields in a struct.
