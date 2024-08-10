@@ -130,7 +130,7 @@ func (circuit *Circuit) Define(api frontend.API) error {
 
 Similar to Circom, if a variable is not declared public, then it is private by default, such as `X`. The `gnark:"x"` and `gnark:",public"` part is called a **"tag"**, it adds metadata to fields in a struct.
 
-### How to write constraints in gnark (using high-level API)
+### How to write constraints in gnark
 
 Constraints are written in a method called `Define`, and it needs to be linked to the struct you just defined. In this case, the struct containing all variable declarations is named `Circuit` and we name the new instance `circuit`. Later we can use `circuit` to access variables, such as `circuit.X` and `circuit.Y`.
 
@@ -171,21 +171,76 @@ func (cs *ConstraintSystem) Select(b Variable, i1, i2 interface{}) Variable {
 }
 ```
 
-You can find high-level API methods here: https://github.com/Consensys/gnark/blob/master/frontend/api.go. Cryptography functions can be found here: https://github.com/ConsenSys/gnark-crypto. Unfortunately, there is no easy way to reference these methods, you have to look through the resource code. But at least you know where to look at: if you encounter unfamiliar function names, it must reside in one of those two repos.
+You can find high-level API methods [here](https://github.com/Consensys/gnark/blob/master/frontend/api.go). Cryptography functions can be found [here](https://github.com/ConsenSys/gnark-crypto). Unfortunately, there is no easy way to reference these methods, you have to look through the resource code. But at least you know where to look at: if you encounter unfamiliar function names, it must reside in one of those two repos.
 
-### How to use low-level API in gnark
+Besides high-level API, gnark also provides low-level API. The [LambdaClass article](https://blog.lambdaclass.com/how-to-use-the-consenyss-gnark-zero-knowledge-proof-library-and-disclosure-of-a-ddos-bug/) discussed how to use low-level API in gnark. This info is rarely discussed on the Internet and I found the article helpful. The article is nicely written so I am not going to repeat its content here, just go read it. To add a comment, I think it is better to stick with high-level API since going low-level is error-prone.
 
-The [LambdaClass article](https://blog.lambdaclass.com/how-to-use-the-consenyss-gnark-zero-knowledge-proof-library-and-disclosure-of-a-ddos-bug/) discussed how to use low-level API in gnark. This info is rarely discussed on the Internet and I found the article helpful.
+# Hints in gnark, a slightly advanced concept
 
+"Hint" is a novel terminology that does not appear in Circom, but similar pattern exists in Circom.
 
+What is a hint? Take an example from [SoK: What Don’t We Know? Understanding Security Vulnerabilities in SNARKs](https://arxiv.org/pdf/2402.15293) page 3 on the right, suppose we want to write a circuit that verifies $$X \neq 0$$. One way to do it is to use Fermat's little theorem and test if $$X ^ {p-1} = 1 \mod p$$, but that computation is expensive. Another way is let prover provide a hint $$H = X^{-1}$$ and test $$X * H \eq 1$$, and this works because non-zero elements over a field (which includes finite fields) always have multiplicative inverse by definition.
 
+**In other words, "hint" means I can't compute the thing / I don't want to compute the thing since it is expensive, so I let you provide a "helper" to help me do the computation.**
 
+In Circom, we can see similar pattern in the [IsZero template](https://github.com/iden3/circomlib/blob/cff5ab6288b55ef23602221694a6a38a0239dcc0/circuits/comparators.circom#L24-L34):
 
-# Writing gnark unit tests
+```javascript
+template IsZero() {
+    signal input in;
+    signal output out;
 
+    signal inv;
 
+    inv <-- in!=0 ? 1/in : 0;
 
+    out <== -in*inv +1;
+    in*out === 0;
+}
+```
+
+You can call this `inv` intermediate signal a hint following the definition in the paper. The computation of `inv` utilizes `<--`, which does not add any constraint into R1CS but allows more degrees of freedom in computation, such as `1/in` and the `<bool>?<expr>:<expr>` ternary operator.
+
+The paper also provided an example in gnark:
+
+```go
+type Circuit struct {
+    X frontend.Variable `gnark:",private"`
+    C frontend.Variable `gnark:",public"`
+    Y frontend.Variable `gnark:",public"`
+}
+
+func (circuit *Circuit) Define(api frontend.API) error {
+    outputs := api.Compiler().NewHint(hint.SqrtHint, 1, circuit.X)
+    squareRoot := outputs[0]
+    api.AssertIsEqual(api.Mul(squareRoot, squareRoot), circuit.X)
+    result := api.Mul(squareRoot, circuit.C)
+    api.AssertIsEqual(circuit.Y, result)
+    return nil
+}
+```
+
+In this example, square root of $$X$$ is provided as a hint since computing it in a circuit is tough. The circuit verifies if $$Y = C \cdot sqrt(X)$$. Note that you must add a constraint testing hint variables: `api.AssertIsEqual(api.Mul(squareRoot, squareRoot), circuit.X)`, otherwise it will be an underconstraint bug.
+
+There is also an example in [gnark doc](https://docs.gnark.consensys.io/HowTo/write/hints):
+
+```go
+    var b []frontend.Variable
+    var Σbi frontend.Variable
+    base := 1
+    for i := 0; i < nBits; i++ {
+        b[i] = cs.NewHint(hint.IthBit, a, i)
+        cs.AssertIsBoolean(b[i])
+        Σbi = api.Add(Σbi, api.Mul(b[i], base))
+        base = base << 1
+    }
+    cs.AssertIsEqual(Σbi, a)
+```
+
+This circuit takes ith bit as hint since gnark does not support binary decomposition. The correctness of these hint variables is checked by `Σbi = api.Add(Σbi, api.Mul(b[i], base))`, which computes the weighted sum of all binary digits and compares it to the original decimal value. Without this set of constraints, it will be an underconstraint bug.
+
+**In conclusion, from an engineering persepctive, you can think of compiler hints in gnark as variables computed by a hint functions off-circuit. They are just here to help you do some computation, and they are provided by gnark instead of the prover. And always remember to add constraints to hint variables!!!**
 
 # Conclusion
 
-We covered basic usage of snark here. In future blogposts, I will dig deeper into [official gnark code examples](https://github.com/Consensys/gnark/tree/master/examples). Hope you enjoyed the article!
+We covered basic usage of snark here. In future blogposts, I will dig deeper into [official gnark code examples](https://github.com/Consensys/gnark/tree/master/examples) and how to reproduce gnark bugs. Hope you enjoyed the article!
