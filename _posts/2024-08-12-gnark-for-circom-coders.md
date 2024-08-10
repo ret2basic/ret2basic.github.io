@@ -91,8 +91,6 @@ To wire another template into your circuit, you would use something like:
 
 This pattern is pretty tough to work work, to be honest. In gnark, you can use API function to write constraints, which is much easier.
 
-Also, 
-
 ## gnark
 
 ### How to declare variables in gnark
