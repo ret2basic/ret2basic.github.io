@@ -6,7 +6,7 @@ title: gnark for Circom coders
 {{ page.title }}
 ================
 
-<p class="meta">August 12th, 2024</p>
+<p class="meta">August 12, 2024</p>
 
 # Why writing this blogpost
 
