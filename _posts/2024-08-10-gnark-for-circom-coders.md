@@ -20,6 +20,8 @@ The target audience is those who already know Circom very well but don't have ex
 
 I will try to map terminologies in one-to-one correspondence and introduce some gnark features that Circom does not have.
 
+> Before learning gnark, make sure you work through [A tour of Go](https://go.dev/tour/) at least once.
+
 # Circom vs. gnark
 
 ## Circom
