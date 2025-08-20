@@ -7,11 +7,12 @@ title: Web3 Audit Reports - ret2basic.eth
   <h1>Web3 Audit Reports</h1>
   
   <section class="audit-overview">
-    <p>Below is a comprehensive list of my security audit contributions across various protocols and platforms. These audits span multiple blockchain ecosystems including Ethereum, Aptos, Sui, and TON.</p>
+    <p>Below is a comprehensive list of my security audit contributions organized by programming language and blockchain ecosystem. These audits demonstrate expertise across multiple smart contract languages and platforms.</p>
   </section>
 
   <section class="audit-list">
-    <h2>EVM Audits</h2>
+    <h2>Solidity Audits</h2>
+    <p class="language-description">Ethereum and EVM-compatible chains</p>
     
     <h3>2025</h3>
     
@@ -61,32 +62,12 @@ title: Web3 Audit Reports - ret2basic.eth
     </div>
 
     <div class="audit-item">
-      <h3>zksecurity - Hinkal</h3>
-      <div class="audit-details">
-        <p><strong>Protocol:</strong> Privacy Protocol (Tornado Cash-like)</p>
-        <p><strong>Tech Stack:</strong> Solidity + Circom</p>
-        <p><strong>Findings:</strong> 2 Medium Severity</p>
-        <p><strong>Report:</strong> <a href="https://reports.zksecurity.xyz/reports/hinkal-audit/" target="_blank">View Report</a></p>
-      </div>
-    </div>
-
-    <div class="audit-item">
       <h3>Sigma Prime - Taiko</h3>
       <div class="audit-details">
         <p><strong>Protocol:</strong> Ethereum-equivalent ZK Rollup</p>
         <p><strong>Focus:</strong> Bridge and SGX Proofs</p>
         <p><strong>Findings:</strong> 3 Critical, 5 High, 7 Medium Severity</p>
         <p><strong>Report:</strong> <a href="https://github.com/sigp/public-audits/blob/master/reports/taiko/review.pdf" target="_blank">View Report</a></p>
-      </div>
-    </div>
-
-    <div class="audit-item">
-      <h3>Sigma Prime - Reth</h3>
-      <div class="audit-details">
-        <p><strong>Protocol:</strong> Rust Ethereum Implementation</p>
-        <p><strong>Focus:</strong> ECIES lib, revm, consensus bugs</p>
-        <p><strong>Findings:</strong> 4 Critical, 6 High, 8 Medium Severity</p>
-        <p><strong>Report:</strong> <a href="https://github.com/sigp/public-audits/blob/master/reports/reth/review.pdf" target="_blank">View Report</a></p>
       </div>
     </div>
 
@@ -131,12 +112,30 @@ title: Web3 Audit Reports - ret2basic.eth
   </section>
 
   <section class="audit-list">
-    <h2>Move Audits</h2>
+    <h2>Solidity + Circom Audits</h2>
+    <p class="language-description">Zero-Knowledge Circuit Implementations</p>
     
-    <h3>2025</h3>
+    <h3>2024</h3>
     
     <div class="audit-item">
-      <h3>HackenProof - SuiDEX</h3>
+      <h3>zksecurity - Hinkal</h3>
+      <div class="audit-details">
+        <p><strong>Protocol:</strong> Privacy Protocol (Tornado Cash-like)</p>
+        <p><strong>Tech Stack:</strong> Solidity + Circom</p>
+        <p><strong>Findings:</strong> 2 Medium Severity</p>
+        <p><strong>Report:</strong> <a href="https://reports.zksecurity.xyz/reports/hinkal-audit/" target="_blank">View Report</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="audit-list">
+    <h2>Move Audits</h2>
+    <p class="language-description">Aptos and Sui Blockchain Platforms</p>
+    
+    <h3>Sui Network</h3>
+    
+    <div class="audit-item">
+      <h3>HackenProof - SuiDEX (2025)</h3>
       <div class="audit-details">
         <p><strong>Blockchain:</strong> Sui</p>
         <p><strong>Type:</strong> DEX</p>
@@ -144,20 +143,9 @@ title: Web3 Audit Reports - ret2basic.eth
         <p><strong>Report:</strong> <a href="https://hackenproof.com/audit-programs/suidex-audit-contest" target="_blank">View Contest</a></p>
       </div>
     </div>
-    
-    <div class="audit-item">
-      <h3>Code4rena - Cabal Liquid Staking Token</h3>
-      <div class="audit-details">
-        <p><strong>Blockchain:</strong> Aptos</p>
-        <p><strong>Type:</strong> Liquid Staking</p>
-        <p><strong>Result:</strong> 3rd Place</p>
-      </div>
-    </div>
-
-    <h3>2024</h3>
 
     <div class="audit-item">
-      <h3>Movebit - Turbos</h3>
+      <h3>Movebit - Turbos (2024)</h3>
       <div class="audit-details">
         <p><strong>Protocol:</strong> Uniswap V3-like AMM</p>
         <p><strong>Blockchain:</strong> Sui</p>
@@ -166,8 +154,19 @@ title: Web3 Audit Reports - ret2basic.eth
       </div>
     </div>
 
+    <h3>Aptos Network</h3>
+    
     <div class="audit-item">
-      <h3>Movebit - YuzuDEX</h3>
+      <h3>Code4rena - Cabal Liquid Staking Token (2025)</h3>
+      <div class="audit-details">
+        <p><strong>Blockchain:</strong> Aptos</p>
+        <p><strong>Type:</strong> Liquid Staking</p>
+        <p><strong>Result:</strong> 3rd Place</p>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <h3>Movebit - YuzuDEX (2024)</h3>
       <div class="audit-details">
         <p><strong>Protocol:</strong> Uniswap V3-like AMM</p>
         <p><strong>Blockchain:</strong> Aptos</p>
@@ -175,8 +174,10 @@ title: Web3 Audit Reports - ret2basic.eth
       </div>
     </div>
 
+    <h3>Cross-Chain Move</h3>
+
     <div class="audit-item">
-      <h3>Movebit - Kai Leverage</h3>
+      <h3>Movebit - Kai Leverage (2024)</h3>
       <div class="audit-details">
         <p><strong>Type:</strong> Leverage Trading Protocol</p>
         <p><strong>Blockchain:</strong> Move</p>
@@ -186,14 +187,14 @@ title: Web3 Audit Reports - ret2basic.eth
     </div>
 
     <div class="audit-item">
-      <h3>Movebit - Fiamma</h3>
+      <h3>Movebit - Fiamma (2024)</h3>
       <div class="audit-details">
         <p><strong>Blockchain:</strong> Move</p>
       </div>
     </div>
 
     <div class="audit-item">
-      <h3>Movebit - Pebble</h3>
+      <h3>Movebit - Pebble (2024)</h3>
       <div class="audit-details">
         <p><strong>Blockchain:</strong> Move</p>
         <p><strong>Findings:</strong> 4 High, 1 Medium Severity</p>
@@ -202,7 +203,25 @@ title: Web3 Audit Reports - ret2basic.eth
   </section>
 
   <section class="audit-list">
-    <h2>TON Audits</h2>
+    <h2>Rust Audits</h2>
+    <p class="language-description">Blockchain Infrastructure and Protocol Implementations</p>
+    
+    <h3>2024</h3>
+    
+    <div class="audit-item">
+      <h3>Sigma Prime - Reth</h3>
+      <div class="audit-details">
+        <p><strong>Protocol:</strong> Rust Ethereum Implementation</p>
+        <p><strong>Focus:</strong> ECIES lib, revm, consensus bugs</p>
+        <p><strong>Findings:</strong> 4 Critical, 6 High, 8 Medium Severity</p>
+        <p><strong>Report:</strong> <a href="https://github.com/sigp/public-audits/blob/master/reports/reth/review.pdf" target="_blank">View Report</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="audit-list">
+    <h2>FunC Audits</h2>
+    <p class="language-description">TON Blockchain Smart Contracts</p>
     
     <h3>2024</h3>
     
@@ -218,7 +237,7 @@ title: Web3 Audit Reports - ret2basic.eth
   </section>
 
   <section class="audit-summary">
-    <h2>Audit Statistics</h2>
+    <h2>Audit Statistics by Language</h2>
     <div class="stats">
       <div class="stat-item">
         <h3>Total Findings</h3>
@@ -227,13 +246,13 @@ title: Web3 Audit Reports - ret2basic.eth
         <p><strong>Medium:</strong> 54+</p>
       </div>
       <div class="stat-item">
-        <h3>Blockchains Audited</h3>
+        <h3>Languages & Platforms</h3>
         <ul>
-          <li>Ethereum (Solidity)</li>
-          <li>Aptos (Move)</li>
-          <li>Sui (Move)</li>
-          <li>TON (FunC)</li>
-          <li>ZK Circuits (Circom)</li>
+          <li><strong>Solidity:</strong> 10 audits (Ethereum/EVM)</li>
+          <li><strong>Move:</strong> 7 audits (Aptos & Sui)</li>
+          <li><strong>Rust:</strong> 1 audit (Infrastructure)</li>
+          <li><strong>FunC:</strong> 1 audit (TON)</li>
+          <li><strong>Circom:</strong> 1 audit (ZK Circuits)</li>
         </ul>
       </div>
       <div class="stat-item">
@@ -248,6 +267,7 @@ title: Web3 Audit Reports - ret2basic.eth
           <li>Perpetual Futures</li>
           <li>RWA</li>
           <li>Leverage Trading</li>
+          <li>Blockchain Infrastructure</li>
         </ul>
       </div>
     </div>
