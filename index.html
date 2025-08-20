@@ -1,13 +1,118 @@
 ---
 layout: default
-title: ret2basic.eth rambling
+title: Chenyang Yu - Web3 Security Researcher
 ---
 
 <div id="home">
-  <h1>Blog posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+  <section class="hero">
+    <h1>Chenyang Yu</h1>
+    <h2>Web3 Security Researcher</h2>
+    <p class="tagline">Resident at Electisec | DeFiHackLabs Core Member | Movebit Contractor</p>
+    
+    <div class="contact-links">
+      <a href="https://x.com/ret2basic" target="_blank">Twitter</a> |
+      <a href="https://taichaudit.com" target="_blank">Taichi Audit</a> |
+      <a href="mailto:ret2basiceth@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <section class="work-experience">
+    <h2>Work Experience</h2>
+    
+    <div class="job">
+      <h3>Independent Security Researcher</h3>
+      <span class="duration">Jan 2023 – Present</span>
+      <h4>Audit Highlights:</h4>
+      <ul>
+        <li><strong>Electi Fellowship Block 7</strong> - Yield Basis DAO (Curve DAO-like)</li>
+        <li><strong>Electi Fellowship Block 7</strong> - Centrifuge (RWA)</li>
+        <li><strong>Code4rena</strong> - Cabal Liquid Staking Token (Aptos Move) - 3rd place</li>
+        <li><strong>Movebit</strong> - Turbos (Uniswap V3-like AMM, Sui Move) - 4 high</li>
+        <li><strong>Movebit</strong> - YuzuDEX (Uniswap V3-like AMM, Aptos Move) - 3 high, 1 med</li>
+        <li><strong>Movebit</strong> - Fiva (Pendle Finance-like yield trading, TON FunC) - 2 high, 2 med</li>
+        <li><strong>Taichi Audit Group</strong> - Lazyotter (ERC4626 vault) - 1 high, 10 med</li>
+        <li><strong>Taichi Audit Group</strong> - Lambo (virtual liquidity) - 1 high, 4 med</li>
+        <li><strong>Code4rena</strong> - reNFT (Seaport integration) - 3 high, 1 med</li>
+        <li><strong>Code4rena</strong> - Nextgen (generative art) - 4 high, 4 med</li>
+        <li><strong>Code4rena</strong> - Wildcat (banking) - 3 high</li>
+        <li><strong>Guardian Audit</strong> - PariFi (perpetual futures) - 1 crit, 3 high, 13 med</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <h3>Security Engineer Intern</h3>
+      <h4>zksecurity</h4>
+      <span class="duration">Aug 2024 - Nov 2024</span>
+      <ul>
+        <li>Participated in <strong>Hinkal</strong> audit (Privacy protocol similar to Tornado Cash - Solidity + Circom)</li>
+        <li>Built <a href="https://github.com/zksecurity/zkbugs" target="_blank">zkbugs</a> - Wrote PoCs for ~30 historical Circom bugs from audit reports</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <h3>Security Engineering Intern</h3>
+      <h4>Sigma Prime</h4>
+      <span class="duration">Jan 2024 - Apr 2024</span>
+      <ul>
+        <li>Participated in <strong>Taiko</strong> and <strong>Reth</strong> audits, helped with <strong>EigenLayer</strong> audit</li>
+        <li><strong>Taiko</strong>: Ethereum-equivalent ZK rollup protocol. Focused on bridge and SGX proofs, wrote PoCs for all findings</li>
+        <li><strong>Reth</strong>: Rust implementation of Ethereum. Focused on ECIES lib, revm, and consensus bugs. Found two notable networking layer findings</li>
+        <li>Helped escalate an ECC attack finding from high to critical in EigenDA audit</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="achievements">
+    <h2>Achievements</h2>
+    
+    <div class="achievement-category">
+      <h3>Web3 CTF Rankings</h3>
+      <ul>
+        <li>onlyPwner - All challenges solved</li>
+        <li>Magic of Solidity (by jinu) solved on DreamHack</li>
+        <li>Remedy (Hexens) CTF 2025 - 7th place</li>
+        <li>Blaz (Fuzzland) CTF 2024 - 4th place, 2023 - 4th place</li>
+        <li>Ethernaut (OpenZeppelin) CTF 2024 - 9th place</li>
+        <li>Paradigm CTF 2023 - 11th place</li>
+        <li>Numen CTF 2023 - 4th place</li>
+        <li>MetaTrust CTF 2023 - 6th place</li>
+        <li>QuillCTF Dubai 2023 - 5th place</li>
+        <li>QuillCTF MetaToken contest - 3rd place</li>
+        <li>Flashbots MEV-Share CTF 2023 - All challenges solved</li>
+      </ul>
+    </div>
+
+    <div class="achievement-category">
+      <h3>Secureum RACEs Rankings</h3>
+      <ul>
+        <li>RACE #37 - 1st place</li>
+        <li>RACE #42 - 2nd place</li>
+        <li>RACE #20 - 2nd place</li>
+        <li>RACE #27 - 3rd place</li>
+        <li>Participated in several Secureum workshops for outstanding performance</li>
+      </ul>
+    </div>
+
+    <div class="achievement-category">
+      <h3>Web2 Security Certifications</h3>
+      <ul>
+        <li>Offensive Security Certified Professional (OSCP)</li>
+        <li>Certified Red Team Operator (CRTO)</li>
+        <li>Certified Red Team Professional (CRTP)</li>
+        <li>eLearnSecurity Web Application Penetration Tester (eWPT)</li>
+        <li>eLearnSecurity Certified Professional Penetration Tester (eCPPT)</li>
+        <li>eLearnSecurity Certified eXploit Developer (eCXD)</li>
+      </ul>
+    </div>
+
+    <div class="achievement-category">
+      <h3>Projects</h3>
+      <ul>
+        <li><a href="https://github.com/ret2basic/Groth16" target="_blank">Groth16 from scratch in Python</a></li>
+        <li><a href="https://github.com/ret2basic/nand2tetris" target="_blank">nand2tetris - Modern computer simulation</a></li>
+        <li><a href="https://ret2basic.gitbook.io/ctfwriteup" target="_blank">CTF Writeups Site</a></li>
+        <li><a href="https://taichaudit.com" target="_blank">Taichi Audit Group Site</a></li>
+      </ul>
+    </div>
+  </section>
 </div>

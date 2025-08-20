@@ -200,3 +200,225 @@ ul.posts {
   #related h2 {
     margin-bottom: 1em;
   }
+
+
+/*****************************************************************************/
+/*
+/* Portfolio Styles
+/*
+/*****************************************************************************/
+
+/* Hero Section */
+.hero {
+  padding: 2em 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 2em;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+  color: #333;
+}
+
+.hero h2 {
+  font-size: 1.5em;
+  color: #666;
+  margin-bottom: 0.5em;
+}
+
+.tagline {
+  font-size: 1.1em;
+  color: #777;
+  margin-bottom: 1em;
+}
+
+.contact-links {
+  font-size: 1em;
+  margin-top: 1em;
+}
+
+.contact-links a {
+  margin: 0 0.5em;
+  text-decoration: none;
+}
+
+/* Work Experience */
+.work-experience {
+  margin: 3em 0;
+  text-align: left;
+}
+
+.work-experience h2 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  color: #333;
+  border-bottom: 2px solid #00a;
+  padding-bottom: 0.3em;
+}
+
+.job {
+  margin-bottom: 2.5em;
+  padding: 1.5em;
+  background: #f9f9f9;
+  border-left: 4px solid #00a;
+}
+
+.job h3 {
+  font-size: 1.4em;
+  color: #333;
+  margin-bottom: 0.3em;
+}
+
+.job h4 {
+  font-size: 1.2em;
+  color: #666;
+  margin: 0.5em 0;
+}
+
+.job .duration {
+  color: #888;
+  font-style: italic;
+  display: block;
+  margin-bottom: 1em;
+}
+
+.job ul {
+  margin-left: 1.5em;
+  margin-top: 0.5em;
+}
+
+.job li {
+  margin: 0.5em 0;
+  line-height: 1.6;
+}
+
+/* Achievements Section */
+.achievements {
+  margin: 3em 0;
+  text-align: left;
+}
+
+.achievements h2 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  color: #333;
+  border-bottom: 2px solid #00a;
+  padding-bottom: 0.3em;
+}
+
+.achievement-category {
+  margin-bottom: 2em;
+  padding: 1.5em;
+  background: #f9f9f9;
+  border-left: 4px solid #666;
+}
+
+.achievement-category h3 {
+  font-size: 1.3em;
+  color: #444;
+  margin-bottom: 0.8em;
+}
+
+.achievement-category ul {
+  margin-left: 1.5em;
+}
+
+.achievement-category li {
+  margin: 0.5em 0;
+  line-height: 1.5;
+}
+
+/* Audit Reports Page */
+#audits {
+  text-align: left;
+}
+
+#audits h1 {
+  font-size: 2.2em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.audit-overview {
+  text-align: center;
+  margin-bottom: 2em;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.audit-list h2 {
+  font-size: 1.6em;
+  margin: 2em 0 1em 0;
+  color: #333;
+  border-bottom: 2px solid #00a;
+  padding-bottom: 0.3em;
+}
+
+.audit-item {
+  margin-bottom: 1.5em;
+  padding: 1.2em;
+  background: #f9f9f9;
+  border-left: 4px solid #00a;
+}
+
+.audit-item h3 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+.audit-details p {
+  margin: 0.3em 0;
+  color: #666;
+}
+
+.audit-details strong {
+  color: #444;
+}
+
+.audit-summary {
+  margin-top: 3em;
+  padding-top: 2em;
+  border-top: 1px solid #ddd;
+}
+
+.audit-summary h2 {
+  font-size: 1.6em;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 200px;
+  margin: 1em;
+  padding: 1.5em;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+.stat-item h3 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 0.8em;
+}
+
+.stat-item ul {
+  margin-left: 1.2em;
+}
+
+.stat-item li {
+  margin: 0.3em 0;
+}
+
+.stat-item p {
+  margin: 0.3em 0;
+}
