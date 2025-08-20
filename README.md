@@ -1,23 +1,45 @@
-# This is the data for my blog
+# ret2basic.eth - Web3 Security Portfolio
 
-It is automatically transformed by [Jekyll](http://github.com/mojombo/jekyll)
-into a static site whenever I push this repository to GitHub.
+Professional portfolio website showcasing Web3 security audit work and expertise.
 
-I was tired of having my blog posts end up in a database off on some remote
-server. That is backwards. I've lost valuable posts that way. I want to author
-my posts locally in Textile or Markdown. My blog should be easily stylable and
-customizable any way I please. It should take care of creating a feed for me.
-And most of all, my site should be stored on GitHub so that I never lose data
-again.
+## About
+
+This site serves as a portfolio for ret2basic.eth, featuring:
+- Comprehensive Web3 security audit portfolio
+- Smart contract security expertise across multiple blockchains
+- Research and technical writing
+
+## Audit Experience
+
+### Platforms
+- **EVM**: Ethereum, Arbitrum, Optimism, Base
+- **Move**: Aptos, Sui  
+- **Other**: TON (FunC), ZK Circuits (Circom)
+
+### Statistics
+- **Total Audits**: 20+ protocols audited
+- **Findings**: 1 Critical, 31+ High, 35+ Medium severity vulnerabilities
+- **Protocol Types**: AMM/DEX, Liquid Staking, Yield Trading, Privacy Protocols, ZK Rollups, NFT Platforms, Perpetual Futures, RWA, Leverage Trading
+
+### Notable Audits
+
+#### EVM
+- Electi Fellowship Block 7 (Yield Basis DAO, Centrifuge RWA)
+- Sigma Prime (Taiko ZK Rollup, Reth)
+- Code4rena competitions (reNFT, Nextgen, Wildcat)
+- Guardian Audit (PariFi)
+
+#### Move
+- Code4rena (Cabal Liquid Staking - 3rd Place)
+- HackenProof (SuiDEX)
+- Movebit (Turbos, YuzuDEX, Kai Leverage, Fiva, Fiamma, Pebble)
+
+## Technology
+
+Built with Jekyll and hosted on GitHub Pages.
 
 ## License
 
-The following directories and their contents are Copyright Tom Preston-Werner.
-You may not reuse anything therein without my permission:
+© ret2basic.eth. All rights reserved.
 
-* \_posts/
-* images/
-
-All other directories and files are MIT Licensed. Feel free to use the HTML and
-CSS as you please. If you do use them, a link back to
-http://github.com/mojombo/jekyll would be appreciated, but is not required.
+The site structure is based on Jekyll and GitHub Pages.

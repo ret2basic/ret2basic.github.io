@@ -11,14 +11,15 @@ title: Web3 Audit Reports - ret2basic.eth
   </section>
 
   <section class="audit-list">
-    <h2>2024 Audits</h2>
+    <h2>EVM Audits</h2>
+    
+    <h3>2024</h3>
     
     <div class="audit-item">
       <h3>Electi Fellowship Block 7</h3>
       <div class="audit-details">
         <p><strong>Protocol:</strong> Yield Basis DAO (Curve DAO-like)</p>
         <p><strong>Type:</strong> DeFi Governance</p>
-        <p><strong>Role:</strong> Lead Auditor</p>
       </div>
     </div>
 
@@ -27,43 +28,14 @@ title: Web3 Audit Reports - ret2basic.eth
       <div class="audit-details">
         <p><strong>Protocol:</strong> Centrifuge</p>
         <p><strong>Type:</strong> Real World Assets (RWA)</p>
-        <p><strong>Role:</strong> Lead Auditor</p>
       </div>
     </div>
 
     <div class="audit-item">
-      <h3>Code4rena - Cabal Liquid Staking Token</h3>
+      <h3>Electisec - Centrifuge</h3>
       <div class="audit-details">
-        <p><strong>Blockchain:</strong> Aptos (Move)</p>
-        <p><strong>Type:</strong> Liquid Staking</p>
-        <p><strong>Result:</strong> 3rd Place</p>
-      </div>
-    </div>
-
-    <div class="audit-item">
-      <h3>Movebit - Turbos</h3>
-      <div class="audit-details">
-        <p><strong>Protocol:</strong> Uniswap V3-like AMM</p>
-        <p><strong>Blockchain:</strong> Sui (Move)</p>
-        <p><strong>Findings:</strong> 4 High Severity</p>
-      </div>
-    </div>
-
-    <div class="audit-item">
-      <h3>Movebit - YuzuDEX</h3>
-      <div class="audit-details">
-        <p><strong>Protocol:</strong> Uniswap V3-like AMM</p>
-        <p><strong>Blockchain:</strong> Aptos (Move)</p>
-        <p><strong>Findings:</strong> 3 High, 1 Medium Severity</p>
-      </div>
-    </div>
-
-    <div class="audit-item">
-      <h3>Movebit - Fiva</h3>
-      <div class="audit-details">
-        <p><strong>Protocol:</strong> Pendle Finance-like Yield Trading</p>
-        <p><strong>Blockchain:</strong> TON (FunC)</p>
-        <p><strong>Findings:</strong> 2 High, 2 Medium Severity</p>
+        <p><strong>Protocol:</strong> Centrifuge</p>
+        <p><strong>Type:</strong> Mitigation Review + Deploy Scripts Review</p>
       </div>
     </div>
 
@@ -73,6 +45,7 @@ title: Web3 Audit Reports - ret2basic.eth
         <p><strong>Protocol:</strong> ERC4626 Vault</p>
         <p><strong>Type:</strong> DeFi Vault</p>
         <p><strong>Findings:</strong> 1 High, 10 Medium Severity</p>
+        <p><strong>Report:</strong> <a href="https://hackmd.io/Cnca7g23RdiUJCdZKh06lw" target="_blank">View Report</a></p>
       </div>
     </div>
 
@@ -90,7 +63,8 @@ title: Web3 Audit Reports - ret2basic.eth
       <div class="audit-details">
         <p><strong>Protocol:</strong> Privacy Protocol (Tornado Cash-like)</p>
         <p><strong>Tech Stack:</strong> Solidity + Circom</p>
-        <p><strong>Role:</strong> Security Engineer Intern</p>
+        <p><strong>Findings:</strong> 2 Medium Severity</p>
+        <p><strong>Report:</strong> <a href="https://reports.zksecurity.xyz/reports/hinkal-audit/" target="_blank">View Report</a></p>
       </div>
     </div>
 
@@ -99,7 +73,8 @@ title: Web3 Audit Reports - ret2basic.eth
       <div class="audit-details">
         <p><strong>Protocol:</strong> Ethereum-equivalent ZK Rollup</p>
         <p><strong>Focus:</strong> Bridge and SGX Proofs</p>
-        <p><strong>Role:</strong> Security Engineering Intern</p>
+        <p><strong>Findings:</strong> 3 Critical, 5 High, 7 Medium Severity</p>
+        <p><strong>Report:</strong> <a href="https://github.com/sigp/public-audits/blob/master/reports/taiko/review.pdf" target="_blank">View Report</a></p>
       </div>
     </div>
 
@@ -108,13 +83,12 @@ title: Web3 Audit Reports - ret2basic.eth
       <div class="audit-details">
         <p><strong>Protocol:</strong> Rust Ethereum Implementation</p>
         <p><strong>Focus:</strong> ECIES lib, revm, consensus bugs</p>
-        <p><strong>Findings:</strong> 2 Notable Networking Layer Issues</p>
+        <p><strong>Findings:</strong> 4 Critical, 6 High, 8 Medium Severity</p>
+        <p><strong>Report:</strong> <a href="https://github.com/sigp/public-audits/blob/master/reports/reth/review.pdf" target="_blank">View Report</a></p>
       </div>
     </div>
-  </section>
 
-  <section class="audit-list">
-    <h2>2023 Audits</h2>
+    <h3>2023</h3>
     
     <div class="audit-item">
       <h3>Code4rena - reNFT</h3>
@@ -153,14 +127,98 @@ title: Web3 Audit Reports - ret2basic.eth
     </div>
   </section>
 
+  <section class="audit-list">
+    <h2>Move Audits</h2>
+    
+    <h3>2024</h3>
+    
+    <div class="audit-item">
+      <h3>Code4rena - Cabal Liquid Staking Token</h3>
+      <div class="audit-details">
+        <p><strong>Blockchain:</strong> Aptos</p>
+        <p><strong>Type:</strong> Liquid Staking</p>
+        <p><strong>Result:</strong> 3rd Place</p>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <h3>HackenProof - SuiDEX</h3>
+      <div class="audit-details">
+        <p><strong>Blockchain:</strong> Sui</p>
+        <p><strong>Type:</strong> DEX</p>
+        <p><strong>Findings:</strong> 4 Critical, 3 High Severity</p>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <h3>Movebit - Turbos</h3>
+      <div class="audit-details">
+        <p><strong>Protocol:</strong> Uniswap V3-like AMM</p>
+        <p><strong>Blockchain:</strong> Sui</p>
+        <p><strong>Findings:</strong> 7 High Severity</p>
+        <p><strong>Report:</strong> <a href="https://hackmd.io/rdpl3cx8R4OLym7eCYwuKg" target="_blank">View Report</a></p>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <h3>Movebit - YuzuDEX</h3>
+      <div class="audit-details">
+        <p><strong>Protocol:</strong> Uniswap V3-like AMM</p>
+        <p><strong>Blockchain:</strong> Aptos</p>
+        <p><strong>Findings:</strong> 3 High, 1 Medium Severity</p>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <h3>Movebit - Kai Leverage</h3>
+      <div class="audit-details">
+        <p><strong>Type:</strong> Leverage Trading Protocol</p>
+        <p><strong>Blockchain:</strong> Move</p>
+        <p><strong>Findings:</strong> 3 High, 1 Medium Severity</p>
+        <p><strong>Report:</strong> <a href="https://movebit.xyz/reports/20240813-Kai-Leverage-Final-Audit-Report.pdf" target="_blank">View Report</a></p>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <h3>Movebit - Fiamma</h3>
+      <div class="audit-details">
+        <p><strong>Blockchain:</strong> Move</p>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <h3>Movebit - Pebble</h3>
+      <div class="audit-details">
+        <p><strong>Blockchain:</strong> Move</p>
+        <p><strong>Findings:</strong> 4 High, 1 Medium Severity</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="audit-list">
+    <h2>TON Audits</h2>
+    
+    <h3>2024</h3>
+    
+    <div class="audit-item">
+      <h3>Movebit - Fiva</h3>
+      <div class="audit-details">
+        <p><strong>Protocol:</strong> Pendle Finance-like Yield Trading</p>
+        <p><strong>Blockchain:</strong> TON (FunC)</p>
+        <p><strong>Findings:</strong> 2 Medium Severity</p>
+        <p><strong>Report:</strong> <a href="https://tonbit.xyz/reports/20250402-FIVA-Final-Audit-Report.pdf" target="_blank">View Report</a></p>
+      </div>
+    </div>
+  </section>
+
   <section class="audit-summary">
     <h2>Audit Statistics</h2>
     <div class="stats">
       <div class="stat-item">
         <h3>Total Findings</h3>
-        <p><strong>Critical:</strong> 1</p>
-        <p><strong>High:</strong> 31+</p>
-        <p><strong>Medium:</strong> 35+</p>
+        <p><strong>Critical:</strong> 12</p>
+        <p><strong>High:</strong> 53+</p>
+        <p><strong>Medium:</strong> 54+</p>
       </div>
       <div class="stat-item">
         <h3>Blockchains Audited</h3>
@@ -183,6 +241,7 @@ title: Web3 Audit Reports - ret2basic.eth
           <li>NFT Platforms</li>
           <li>Perpetual Futures</li>
           <li>RWA</li>
+          <li>Leverage Trading</li>
         </ul>
       </div>
     </div>
