@@ -17,8 +17,8 @@ This site serves as a portfolio for ret2basic.eth, featuring:
 - **Other**: TON (FunC), ZK Circuits (Circom)
 
 ### Statistics
-- **Total Audits**: 20+ protocols audited
-- **Findings**: 1 Critical, 31+ High, 35+ Medium severity vulnerabilities
+- **Total Audits**: 23 protocols audited
+- **Findings**: 13 Critical, 59+ High, 70+ Medium severity vulnerabilities
 - **Protocol Types**: AMM/DEX, Liquid Staking, Yield Trading, Privacy Protocols, ZK Rollups, NFT Platforms, Perpetual Futures, RWA, Leverage Trading
 
 ### Notable Audits
