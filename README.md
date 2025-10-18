@@ -24,7 +24,7 @@ This site serves as a portfolio for ret2basic.eth, featuring:
 ### Notable Audits
 
 #### EVM
-- Electi Fellowship Block 7 (Yield Basis DAO, Centrifuge RWA)
+- Electi Fellowship Block 7 (Yield Basis DAO, Centrifuge V3 RWA)
 - Sigma Prime (Taiko ZK Rollup, Reth)
 - Code4rena competitions (reNFT, Nextgen, Wildcat)
 - Guardian Audit (PariFi)
