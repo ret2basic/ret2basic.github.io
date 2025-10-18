@@ -18,7 +18,6 @@ html, body {
 body {
   background-color: white;
   font: 13.34px helvetica, arial, clean, sans-serif;
-  *font-size: small;
   text-align: center;
 }
 
@@ -148,10 +147,6 @@ ul.posts {
 /*
 /*****************************************************************************/
 
-#post {
-
-}
-
   /* standard */
 
   #post pre {
@@ -210,38 +205,44 @@ ul.posts {
 
 /* Hero Section */
 .hero {
-  padding: 2em 0;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 2em;
+  padding: 3em 2.75em;
+  margin-bottom: 2.5em;
+  text-align: left;
+  border-radius: 18px;
+  background: linear-gradient(140deg, #f5f7ff 0%, #ffffff 55%, #fdf4ff 100%);
+  border: 1px solid rgba(0, 60, 200, 0.08);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
 }
 
 .hero h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.2em;
-  color: #333;
-}
-
-.hero h2 {
-  font-size: 1.5em;
-  color: #666;
-  margin-bottom: 0.5em;
+  font-size: 3em;
+  color: #1a1a1a;
+  margin-bottom: 0.9em;
 }
 
 .tagline {
+  margin: 0;
+  padding-left: 1.4em;
   font-size: 1.1em;
-  color: #777;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  color: #333;
+  line-height: 1.65;
 }
 
-.contact-links {
-  font-size: 1em;
-  margin-top: 1em;
+.tagline li {
+  margin-bottom: 0.45em;
 }
 
-.contact-links a {
-  margin: 0 0.5em;
-  text-decoration: none;
+.tagline li:last-child {
+  margin-bottom: 0;
+}
+
+.tagline a {
+  color: #1b4ae0;
+  font-weight: 600;
+}
+
+.tagline a:hover {
+  color: #0d2c96;
 }
 
 /* Work Experience */
