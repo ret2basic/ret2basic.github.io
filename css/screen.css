@@ -152,7 +152,18 @@ ul.posts {
   #post pre {
     border: 1px solid #ddd;
     background-color: #eef;
-    padding: 0 .4em;
+    padding: .8em 1em;
+    overflow-x: auto;
+    line-height: 1.45;
+    margin: 1.2em 0;
+  }
+
+  #post .highlighter-rouge {
+    margin: 1.2em 0;
+  }
+
+  #post .highlighter-rouge pre {
+    margin: 0;
   }
 
   #post ul,
@@ -165,15 +176,44 @@ ul.posts {
     background-color: #eef;
     font-size: 85%;
     padding: 0 .2em;
+    font-family: Monaco, "Courier New", monospace;
   }
 
     #post pre code {
       border: none;
+      padding: 0;
+      font-size: 95%;
+      background-color: transparent;
     }
 
   #post img {
-    max-width: 42em;
+    display: block;
+    max-width: 100%;
+    height: auto;
     padding: 1em 0;
+    margin: 0 auto;
+  }
+
+  #post blockquote {
+    margin: 1.2em 0;
+    padding-left: 1em;
+    border-left: 4px solid #ddd;
+    color: #555;
+  }
+
+  #post h1 {
+    font-size: 2em;
+    line-height: 1.2;
+  }
+
+  #post h2 {
+    font-size: 1.35em;
+    margin-top: 1.8em;
+  }
+
+  #post h3 {
+    font-size: 1.15em;
+    margin-top: 1.4em;
   }
 
   /* terminal */
@@ -195,6 +235,122 @@ ul.posts {
   #related h2 {
     margin-bottom: 1em;
   }
+
+/*****************************************************************************/
+/*
+/* Series Pages
+/*
+/*****************************************************************************/
+
+#series {
+  text-align: left;
+}
+
+.series-hero {
+  padding: 2.2em 2.4em;
+  margin-bottom: 2em;
+  background: #f7f8fa;
+  border-left: 4px solid #a00;
+}
+
+.series-kicker {
+  margin: 0 0 .6em 0;
+  color: #777;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 85%;
+  text-transform: uppercase;
+}
+
+.series-hero h1 {
+  font-size: 2.4em;
+  line-height: 1.15;
+  margin-bottom: .5em;
+  color: #222;
+}
+
+.series-hero p {
+  max-width: 34em;
+  margin-bottom: 0;
+  color: #333;
+  font-size: 1.05em;
+}
+
+.series-note,
+.series-list,
+.series-roadmap {
+  margin: 2.4em 0;
+}
+
+.series-note h2,
+.series-list h2,
+.series-roadmap h2 {
+  font-size: 1.55em;
+  margin-bottom: .8em;
+  color: #333;
+  border-bottom: 2px solid #00a;
+  padding-bottom: .3em;
+}
+
+.series-note code {
+  border: 1px solid #ddd;
+  background: #eef;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 85%;
+  padding: 0 .2em;
+}
+
+.series-list ul.posts li {
+  margin-bottom: 1em;
+}
+
+.series-list ul.posts p {
+  margin: .2em 0 0 0;
+  color: #666;
+}
+
+.series-item {
+  margin-bottom: 1.4em;
+  padding: 1.2em;
+  background: #f9f9f9;
+  border-left: 4px solid #666;
+}
+
+.series-item h3 {
+  font-size: 1.15em;
+  color: #333;
+  margin-bottom: .45em;
+}
+
+.series-item p {
+  margin: 0;
+  color: #444;
+}
+
+@media (max-width: 760px) {
+  .site {
+    width: auto;
+    margin: 1.5em 1em 2em 1em;
+  }
+
+  .title {
+    line-height: 2;
+  }
+
+  .site .title a.extra {
+    display: inline-block;
+    margin-left: .8em;
+  }
+
+  .hero,
+  .series-hero {
+    padding: 1.5em;
+  }
+
+  .hero h1,
+  .series-hero h1 {
+    font-size: 2em;
+  }
+}
 
 
 /*****************************************************************************/

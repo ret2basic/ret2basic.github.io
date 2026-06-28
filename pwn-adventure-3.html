@@ -1,0 +1,132 @@
+---
+layout: default
+title: Pwn Adventure 3 Writeups - ret2basic.eth
+description: Pwn Adventure 3 game hacking and reverse engineering writeup series.
+---
+
+<div id="series">
+  <section class="series-hero">
+    <p class="series-kicker">Game hacking / reverse engineering / CTF</p>
+    <h1>Pwn Adventure 3 Writeups</h1>
+    <p>
+      A writeup series for Pwn Adventure 3, focused on building cheats as a way
+      to learn game reverse engineering, debugging, memory editing, and client
+      instrumentation.
+    </p>
+  </section>
+
+  <section class="series-note">
+    <h2>Series Scope</h2>
+    <p>
+      The posts are planned as a practical path from first recon to working
+      game-hacking tooling. The exact article order may change as the writeups
+      are filled in, but this page will remain the index for the full series.
+    </p>
+    <p>
+      Images for this series should live under
+      <code>/images/posts/pwn-adventure-3/</code>. Code snippets can use fenced
+      Markdown blocks such as <code>```cpp</code>, <code>```python</code>,
+      <code>```bash</code>, and <code>```asm</code>.
+    </p>
+  </section>
+
+  <section class="series-list">
+    <h2>Published Posts</h2>
+    <ul class="posts">
+      {% assign pwn_posts = site.categories.pwn-adventure-3 %}
+      {% if pwn_posts %}
+        {% for post in pwn_posts %}
+          <li>
+            <span>{{ post.date | date_to_string }}</span> &raquo;
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            {% if post.summary %}<p>{{ post.summary }}</p>{% endif %}
+          </li>
+        {% endfor %}
+      {% else %}
+        <li><span>TBD</span> &raquo; Posts are being drafted.</li>
+      {% endif %}
+    </ul>
+  </section>
+
+  <section class="series-roadmap">
+    <h2>Planned Outline</h2>
+
+    <div class="series-item">
+      <h3>0. Setup, Threat Model, and Toolchain</h3>
+      <p>
+        Install the game, establish the lab environment, define the rules of the
+        target, and prepare tools such as Cheat Engine, Ghidra/IDA, x64dbg or
+        gdb, process monitors, packet capture, and helper scripts.
+      </p>
+    </div>
+
+    <div class="series-item">
+      <h3>1. Recon: Files, Processes, and Runtime Surface</h3>
+      <p>
+        Map the game directory, binaries, configuration files, logs, loaded
+        modules, network endpoints, and Unreal Engine artifacts. The goal is to
+        understand what can be inspected before modifying anything.
+      </p>
+    </div>
+
+    <div class="series-item">
+      <h3>2. Memory Scanning and First Cheats</h3>
+      <p>
+        Locate basic player state such as health, mana, gold, coordinates, and
+        inventory values. Turn manual scans into repeatable pointer paths or
+        scripted reads/writes.
+      </p>
+    </div>
+
+    <div class="series-item">
+      <h3>3. Static Reversing of Game Logic</h3>
+      <p>
+        Use symbols, strings, RTTI, Unreal Engine patterns, and cross references
+        to recover important classes and functions. Connect static findings to
+        runtime addresses.
+      </p>
+    </div>
+
+    <div class="series-item">
+      <h3>4. Hooking, Patching, and In-Process Tooling</h3>
+      <p>
+        Build small hooks and patches for movement, cooldowns, damage, and item
+        behavior. Cover DLL injection or equivalent loading, trampolines, calling
+        conventions, and crash-resistant iteration.
+      </p>
+    </div>
+
+    <div class="series-item">
+      <h3>5. ESP, Teleport, and Coordinate Systems</h3>
+      <p>
+        Recover world positions, camera data, entity lists, and projection math
+        for visual overlays and teleport-style tooling.
+      </p>
+    </div>
+
+    <div class="series-item">
+      <h3>6. Networking and Client/Server Trust Boundaries</h3>
+      <p>
+        Inspect traffic, identify which actions are client-authoritative, and
+        reason about where cheat logic succeeds or fails. Keep the focus on CTF
+        lab analysis and reproducible writeup evidence.
+      </p>
+    </div>
+
+    <div class="series-item">
+      <h3>7. Automation and Exploit Chaining</h3>
+      <p>
+        Combine primitives into reusable scripts or tools: farming, route
+        automation, challenge solving, and state manipulation workflows.
+      </p>
+    </div>
+
+    <div class="series-item">
+      <h3>8. Challenge Writeups</h3>
+      <p>
+        Document individual Pwn Adventure 3 objectives with screenshots, code,
+        before/after state, root cause, and final solve steps.
+      </p>
+    </div>
+  </section>
+</div>

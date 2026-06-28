@@ -2,9 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <title>{{ page.title }}</title>
    <meta name="author" content="ret2basic.eth" />
-   <meta name="description" content="Web3 Security Researcher - Audit Reports and Portfolio" />
+   <meta name="description" content="{{ page.description | default: site.description }}" />
    <meta name="readability-verification" content="QCzSs992GxmRYRKVpPeZ6LE2tS8aYKxsSSQKV8YM"/>
 
    <!-- syntax highlighting CSS -->
@@ -30,6 +31,7 @@ var WRInitTime=(new Date()).getTime();
     <a href="/">ret2basic.eth</a>
     <a class="extra" href="/">Home</a>
     <a class="extra" href="/audits.html">Portfolio</a>
+    <a class="extra" href="/pwn-adventure-3.html">Pwn Adventure 3</a>
     <a class="extra" href="https://taichiaudit.com">Taichi Audit</a>
     <a class="extra" href="https://ret2basic.gitbook.io/ctfwriteup">CTF Writeup</a>
   </div>

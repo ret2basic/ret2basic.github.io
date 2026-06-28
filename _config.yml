@@ -1,0 +1,12 @@
+title: ret2basic.eth
+description: Web3 Security Researcher - Audit Reports, Portfolio, and CTF Writeups
+url: https://ret2basic.github.io
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: /:categories/:year/:month/:day/:title/
