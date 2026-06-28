@@ -5,6 +5,7 @@ date: 2026-06-28
 categories: pwn-adventure-3
 summary: "A roadmap for the Pwn Adventure 3 game-hacking writeup series."
 description: "Pwn Adventure 3 game hacking writeup series outline."
+permalink: /pwn-adventure-3/2026/06/28/pwn-adventure-3-series-outline/
 ---
 
 # Pwn Adventure 3 Writeups: Series Outline
